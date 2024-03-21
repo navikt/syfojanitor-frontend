@@ -4,7 +4,7 @@ const nextConfig = {
     swcMinify: true,
     output: 'standalone',
     experimental: {
-        serverActions: true,
+        serverComponentsExternalPackages: ['@navikt/next-logger', 'next-logger'],
     },
 };
 
