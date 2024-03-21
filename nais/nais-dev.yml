@@ -1,0 +1,49 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: syfojanitor-frontend
+  namespace: teamsykefravr
+  labels:
+    team: teamsykefravr
+spec:
+  image: {{ image }}
+  port: 3000
+  ingresses:
+    - "https://syfojanitor-frontend.intern.dev.nav.no"
+  replicas:
+    min: 1
+    max: 1
+    cpuThresholdPercentage: 80
+  resources:
+    limits:
+      memory: 1024Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+  liveness:
+    path: /api/internal/is_alive
+  readiness:
+    path: /api/internal/is_ready
+  azure:
+    sidecar:
+      enabled: true
+      autoLogin: true
+      autoLoginIgnorePaths:
+        - /internal/*
+    application:
+      enabled: true
+      tenant: trygdeetaten.no
+      allowAllUsers: true
+      claims:
+        extra:
+          - "NAVident"
+        groups:
+          - id: "7c0dd32a-1896-4e14-96f6-a7eadc73f5f5" # isyfo
+          - id: "1fac48f0-9744-4d44-a5b5-e2c8aa2ca42b" # esyfo
+  accessPolicy:
+    outbound:
+      rules:
+        - application: syfojanitor-backend
+  env:
+    - name: SYFOJANITOR_BACKEND_SCOPE
+      value: api://dev-gcp.teamsykefravr.syfojanitor-backend/.default
