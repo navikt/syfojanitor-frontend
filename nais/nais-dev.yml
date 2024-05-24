@@ -10,6 +10,7 @@ spec:
   port: 3000
   ingresses:
     - "https://syfojanitor-frontend.intern.dev.nav.no"
+    - "https://syfojanitor-frontend.ansatt.dev.nav.no"
   replicas:
     min: 1
     max: 1
