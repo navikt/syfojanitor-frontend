@@ -8,7 +8,7 @@ export const eventsMock = (): JanitorResponseDTO[] =>  [
     navident: 'Z999999',
     action: JanitorAction.LUKK_DIALOGMOTE,
     description: 'Se Jira-sak',
-    status: JanitorStatus.CREATED,
+    status: JanitorStatus.OK,
     createdAt: "2024-05-01T12:00:00.000+01:00",
     updatedAt: "2024-05-01T12:00:00.000+01:00",
   },
