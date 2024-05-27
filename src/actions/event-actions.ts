@@ -1,6 +1,5 @@
 'use server'
 
-// import { logger } from '@navikt/next-logger'
 import { authorizationFetch } from '../auth/withAuth'
 import { JanitorAction, JanitorRequestDTO, JanitorResponseDTO } from "../types/JanitorDTO";
 import { eventsMock } from "../mocks/mockdata";
