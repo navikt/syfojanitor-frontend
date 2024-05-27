@@ -1,7 +1,7 @@
 'use client'
-import { Alert, Button, Loader } from "@navikt/ds-react";
+import { Alert, Button, Loader, Table, Tag } from "@navikt/ds-react";
 import React, { useState, useTransition } from "react";
-import { JanitorResponseDTO } from "../types/JanitorDTO";
+import { JanitorResponseDTO, JanitorStatus } from "../types/JanitorDTO";
 import { getEvents } from "../actions/event-actions";
 
 export default function EventStatusListe() {
@@ -21,13 +21,49 @@ export default function EventStatusListe() {
       }
     })}
 
-  console.log(data, error, isPending)
+  const getStatusTagVariant = (status: JanitorStatus) => {
+    switch (status) {
+      case JanitorStatus.CREATED:
+        return 'info'
+      case JanitorStatus.OK:
+        return 'success'
+      case JanitorStatus.FAILED:
+        return 'error'
+    }
+  }
 
   return (
     <>
       <Button loading={isPending} onClick={handleClick}>Hent status</Button>
       {isPending && <Loader size="medium" />}
       {error && <Alert variant="error">{error}</Alert>}
+      {data && <Table>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell scope="col">Type</Table.HeaderCell>
+            <Table.HeaderCell scope="col">Status</Table.HeaderCell>
+            <Table.HeaderCell scope="col">Referanse</Table.HeaderCell>
+              <Table.HeaderCell scope="col">Opprettet</Table.HeaderCell>
+              <Table.HeaderCell scope="col">Oppdatert</Table.HeaderCell>
+              <Table.HeaderCell scope="col">Beskrivelse</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          {data.map((event, i) =>
+            (
+              <Table.Row key={i}>
+                <Table.DataCell>{event.action}</Table.DataCell>
+                <Table.DataCell>
+                  <Tag variant={getStatusTagVariant(event.status)}>{event.status}</Tag>
+                </Table.DataCell>
+                <Table.DataCell>{event.referenceUUID}</Table.DataCell>
+                <Table.DataCell>{event.createdAt}</Table.DataCell>
+                <Table.DataCell>{event.updatedAt}</Table.DataCell>
+                <Table.DataCell>{event.description}</Table.DataCell>
+              </Table.Row>
+            ))}
+        </Table.Body>
+      </Table>}
     </>
   )
 }
