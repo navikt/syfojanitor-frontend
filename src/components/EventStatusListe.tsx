@@ -34,7 +34,7 @@ export default function EventStatusListe() {
 
   return (
     <>
-      <Button loading={isPending} onClick={handleClick}>Hent status</Button>
+      <Button variant="secondary" loading={isPending} onClick={handleClick}>Sjekk status</Button>
       {isPending && <Loader size="medium" />}
       {error && <Alert variant="error">{error}</Alert>}
       {data && <Table>
