@@ -45,14 +45,12 @@ export async function authorizationFetch(
     body?: BodyInit,
 ): Promise<Response> {
     const bearerToken = getToken(headers())
-    console.log('bearerToken', bearerToken)
     if (!bearerToken) {
         // logger.info('No token found, redirecting to login')
         throw new Error('Missing token')
     }
 
     const oboResult = await requestOboToken(bearerToken, process.env.SYFOJANITOR_BACKEND_SCOPE ?? 'scope not set')
-    console.log('oboResult', oboResult)
     if (!oboResult.ok) {
         // logger.error(oboResult.error)
         throw new Error('Invalid token')
