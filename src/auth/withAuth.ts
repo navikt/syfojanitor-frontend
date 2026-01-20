@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation'
 
 export async function verifyUserLoggedIn(): Promise<void> {
     // logger.info('Getting headers')
-    const requestHeaders = headers()
+    const requestHeaders = await headers()
 
     if (process.env.NODE_ENV !== 'production') {
         // logger.warn('Is running locally, skipping authentication for page')
@@ -44,7 +44,7 @@ export async function authorizationFetch(
     fetchHeaders: HeadersInit = {},
     body?: BodyInit,
 ): Promise<Response> {
-    const bearerToken = getToken(headers())
+    const bearerToken = getToken(await headers())
     if (!bearerToken) {
         // logger.info('No token found, redirecting to login')
         throw new Error('Missing token')
