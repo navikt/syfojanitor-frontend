@@ -9,8 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@navikt/ds-css": "^7.40.0",
-    "@navikt/ds-react": "^7.40.0",
+    "@navikt/ds-css": "^8.0.1",
+    "@navikt/ds-react": "^8.0.1",
+    "@navikt/ds-tailwind": "^8.0.1",
     "@navikt/next-logger": "^4.4.1",
     "@navikt/oasis": "^3.2.2",
     "next": "16.1.4",
