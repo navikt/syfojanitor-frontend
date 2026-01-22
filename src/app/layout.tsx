@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 // import 'next-logger'
-import '../global.css'
+import "../global.css";
 import { verifyUserLoggedIn } from "../auth/withAuth";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -16,7 +16,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  await verifyUserLoggedIn()
+  await verifyUserLoggedIn();
 
   return (
     <html lang="en">
