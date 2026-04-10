@@ -29,11 +29,12 @@ jobs:
       id-token: 'write'
       packages: 'write'
     steps:
-      - uses: navikt/teamesyfo-github-actions-workflows/actions/npm-cached@main
+      - uses: navikt/teamesyfo-github-actions-workflows/actions/setup-pnpm@main
         with:
           NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          node-version: 22
       - name: Build app
-        run: npm run build
+        run: pnpm build
       - name: docker-build-push
         uses: nais/docker-build-push@v0
         id: docker-build-push
