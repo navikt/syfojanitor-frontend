@@ -12,4 +12,15 @@ export const eventsMock = (): JanitorResponseDTO[] =>  [
     createdAt: "2024-05-01T12:00:00.000+01:00",
     updatedAt: "2024-05-01T12:00:00.000+01:00",
   },
+  {
+    uuid: '1f6e939b-a97f-4f9f-b703-b4d2efce5f42',
+    referenceUUID: 'd81bf42f-1db9-43d7-9c1b-cd1834567b18',
+    personident: '12078940123',
+    navident: 'Z999999',
+    action: JanitorAction.SLETT_BEHANDLERDIALOG,
+    description: 'Feilregistrert dialog med behandler',
+    status: JanitorStatus.CREATED,
+    createdAt: "2024-05-02T12:00:00.000+01:00",
+    updatedAt: "2024-05-02T12:00:00.000+01:00",
+  },
 ]

@@ -1,6 +1,7 @@
 import { z } from 'zod'
 export enum JanitorAction {
     LUKK_DIALOGMOTE = 'LUKK_DIALOGMOTE',
+    SLETT_BEHANDLERDIALOG = 'SLETT_BEHANDLERDIALOG',
 }
 
 export enum JanitorStatus {
