@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { JanitorAction } from "../types/JanitorDTO";
 import JanitorActionForm from "./JanitorActionForm";
 
@@ -11,5 +11,5 @@ export default function SlettBehandlerdialog() {
       errorMessage="Sletting av behandlerdialog feilet"
       info="Husk at journalpost må markeres som feilregistrert i Gosys"
     />
-  )
+  );
 }

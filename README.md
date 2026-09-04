@@ -3,7 +3,7 @@
 Prod: https://syfojanitor-frontend.intern.nav.no/
 Dev: https://syfojanitor-frontend.intern.dev.nav.no/
 
-Syfojanitor brukes til å lukke åpne dialogmøter manuelt. Dette gjøres ved å legge inn `uuid` og `personident` i syfojanitor på møtet man ønsker å lukke. 
+Syfojanitor brukes til å lukke åpne dialogmøter manuelt. Dette gjøres ved å legge inn `uuid` og `personident` i syfojanitor på møtet man ønsker å lukke.
 `uuid` på dialogmøtet man skal lukke finner man ved å koble til databasen til `isdialogmote` ([se repository](https://github.com/navikt/isdialogmote)). (Se hvordan man gjør det [her](https://docs.nais.io/persistence/cloudsql/how-to/personal-access/?h=personal))
 For å finne `uuid` på møtet man skal lukke så slår man opp `mote_id` i `motedeltaker_arbeidstaker` tabellen på gitt `personident`, for å så slå opp det spesifikke møtet i `mote` tabellen. Det er `uuid` på det spesifikke møtet man ønsker å lukke i `mote` tabellen som skal fylles inn i `syfojanitor`.
 
