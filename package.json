@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "lint-and-typecheck": "pnpm lint:check && pnpm typecheck",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
     "lint:check": "oxlint",
     "lint:fix": "oxlint --fix",
     "fmt:write": "oxfmt --write",
