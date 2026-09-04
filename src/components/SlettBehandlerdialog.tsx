@@ -9,7 +9,7 @@ export default function SlettBehandlerdialog() {
       buttonLabel="Slett behandlerdialog"
       action={JanitorAction.SLETT_BEHANDLERDIALOG}
       errorMessage="Sletting av behandlerdialog feilet"
-      info="Husk at journalpost må markeres som feilregistrert i Gosys"
+      info="Husk å informere veileder om at journalpost må markeres som feilregistrert i Gosys"
     />
   );
 }
