@@ -6,8 +6,8 @@ on:
       - main
 
 permissions:
-  contents: 'read'
-  id-token: 'write'
+  contents: "read"
+  id-token: "write"
 
 jobs:
   codeql-analysis:
@@ -26,14 +26,20 @@ jobs:
     name: build and push docker image
     runs-on: ubuntu-latest
     permissions:
-      contents: 'read'
-      id-token: 'write'
-      packages: 'write'
+      contents: "read"
+      id-token: "write"
+      packages: "write"
     steps:
       - uses: navikt/teamesyfo-github-actions-workflows/actions/setup-pnpm@main
         with:
           NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           node-version: 22
+      - name: Format check 💅
+        run: |
+          pnpm run fmt:check
+      - name: Run lint and typecheck 🤓
+        run: |
+          pnpm run lint-and-typecheck
       - name: Build app
         run: pnpm build
       - name: docker-build-push

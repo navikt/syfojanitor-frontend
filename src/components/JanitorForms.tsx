@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { Tabs } from "@navikt/ds-react";
 import LukkDialogmote from "./LukkDialogmote";
 import SlettBehandlerdialog from "./SlettBehandlerdialog";
@@ -17,5 +17,5 @@ export default function JanitorForms() {
         <SlettBehandlerdialog />
       </Tabs.Panel>
     </Tabs>
-  )
+  );
 }
