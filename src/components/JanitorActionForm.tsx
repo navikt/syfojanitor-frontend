@@ -28,6 +28,12 @@ export default function JanitorActionForm({
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
 
+  const clearForm = () => {
+    setReferenceUUID("");
+    setPersonident("");
+    setDescription("");
+  };
+
   const send = () => {
     startTransition(async (): Promise<void> => {
       if (!referenceUUID || !personident || !description) {
@@ -40,6 +46,8 @@ export default function JanitorActionForm({
         await postEvent(referenceUUID, personident, description, action);
         setError(null);
         setIsSuccess(true);
+        clearForm();
+        setTimeout(() => setIsSuccess(false), 3000);
       } catch {
         setIsSuccess(false);
         setError(errorMessage);
@@ -55,15 +63,21 @@ export default function JanitorActionForm({
       {error && <Alert variant={"error"}>{error}</Alert>}
       <TextField
         label="Uuid"
+        value={referenceUUID}
         onChange={(e) => setReferenceUUID(e.target.value)}
+        onBlur={(e) => setReferenceUUID(e.target.value.trim())}
       />
       <TextField
         label="Personident"
+        value={personident}
         onChange={(e) => setPersonident(e.target.value)}
+        onBlur={(e) => setPersonident(e.target.value.trim())}
       />
       <TextField
         label="Årsak/bakgrunn"
+        value={description}
         onChange={(e) => setDescription(e.target.value)}
+        onBlur={(e) => setDescription(e.target.value.trim())}
       />
       <Button onClick={send} loading={isPending}>
         {buttonLabel}
