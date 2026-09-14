@@ -1,0 +1,15 @@
+name: main
+on: push
+
+jobs:
+  build-and-deploy:
+    uses: navikt/isworkflows/.github/workflows/node-build-deploy-pnpm.yml@master
+    permissions:
+      packages: read
+      id-token: write
+      contents: read
+    with:
+      dev-cluster: dev-gcp
+      prod-cluster: prod-gcp
+      node-version: 22
+    secrets: inherit
