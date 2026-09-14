@@ -2,10 +2,13 @@
   "name": "syfojanitor-frontend",
   "version": "0.1.0",
   "private": true,
+  "author": "Team DigiSyfo <digisyfo@nav.no>",
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test": "echo \"No tests available\"",
     "lint-and-typecheck": "pnpm lint:check && pnpm typecheck",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "lint:check": "oxlint",
@@ -14,26 +17,26 @@
     "fmt:check": "oxfmt --check"
   },
   "dependencies": {
-    "@navikt/ds-css": "^8.0.1",
-    "@navikt/ds-react": "^8.0.1",
-    "@navikt/ds-tailwind": "^8.0.1",
-    "@navikt/next-logger": "^4.4.1",
-    "@navikt/oasis": "^3.2.2",
+    "@navikt/ds-css": "8.0.1",
+    "@navikt/ds-react": "8.0.1",
+    "@navikt/ds-tailwind": "8.0.1",
+    "@navikt/next-logger": "4.4.1",
+    "@navikt/oasis": "3.2.2",
     "next": "16.3.3",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "zod": "^3.22.4"
+    "zod": "3.22.4"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.18",
-    "@types/node": "^22",
+    "@tailwindcss/postcss": "4.1.18",
+    "@types/node": "22",
     "@types/react": "19.2.9",
     "@types/react-dom": "19.2.3",
-    "oxfmt": "^0.66.0",
-    "oxlint": "^1.81.0",
-    "postcss": "^8",
-    "tailwindcss": "^4.1.18",
-    "typescript": "^5"
+    "oxfmt": "0.66.0",
+    "oxlint": "1.81.0",
+    "postcss": "8.5.23",
+    "tailwindcss": "4.1.18",
+    "typescript": "5.4.3"
   },
-  "packageManager": "pnpm@10.33.0"
+  "packageManager": "pnpm@12.4.1"
 }
