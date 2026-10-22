@@ -9,6 +9,22 @@ For å finne `uuid` på møtet man skal lukke så slår man opp `mote_id` i `mot
 
 ## Getting Started
 
+The Node version is defined in `.nvmrc`, and the pnpm version is defined in
+`package.json`. With [nvm](https://github.com/nvm-sh/nvm) installed:
+
+```sh
+nvm install
+nvm use
+```
+
+Change only `.nvmrc` to update Node locally, in GitHub Actions and in Docker.
+Docker uses the same Node major as the build. After building the app, build the
+Docker image locally with the selected Node version:
+
+```sh
+docker build --build-arg NODE_VERSION="$(node -p 'process.versions.node.split(".")[0]')" .
+```
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 First, run the development server:
 
